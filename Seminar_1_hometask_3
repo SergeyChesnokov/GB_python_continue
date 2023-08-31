@@ -1,0 +1,46 @@
+# /////////////   ДЗ №3   ////////////////
+
+from random import randint
+
+LOWER_LIMIT = 0
+UPPER_LIMIT = 1000
+attenpts = 10
+
+print('\n\n\t---[  УГАДАЙ ЧИСЛО  ]---\n\n\n\tВведите число от 0 до 1000\n')
+
+num = randint(LOWER_LIMIT, UPPER_LIMIT)
+
+i = 1
+while i <= attenpts:
+
+#   ===   Блок ввода:   ===
+
+    flag = True
+    while flag == True:
+        attempt = input(f'\n\n--->   Попытка №{i}, Ваше число:   ')
+        try:
+            attempt = int(attempt)
+            flag = False
+        except:
+            print('\n!!! Это не число, вводите внимательнее')
+        
+#   ===   Блок проверки:   ===
+
+    flag = True
+    if 0 <= attempt <= 1000:
+        if attempt == num:
+            print('\nУра! Вы угадали!!!\n\n')
+            flag = False
+            i = attenpts + 1
+        elif attempt < num:
+            print(f'\nПромах, бери выше. Осталось {attenpts - i} попыток\n')
+        else:
+            print(f'\nПеребор. Целься ниже. Осталось {attenpts - i} попыток\n')
+    else:
+        print('\n!!! Только числа от 0 до 1000')
+        i -= 1
+
+    i += 1
+else:
+    if flag == True:
+        print('---===   GAME OVER   ===---\n')
