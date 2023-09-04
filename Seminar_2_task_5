@@ -1,0 +1,23 @@
+from cmath import sqrt
+
+text = 'ax\u00B2 + bx + c = 0'
+
+print(f'\nВведите значения для коэффициентов уравнения: {text}\n\
+\nРекоммендуемый вариант для красивых комплексных корней: a = 1, b = -2, c = 10\n\
+Введите "0" для автоматического ввода коэффициентов\n')
+
+a = float(input(' a = '))
+if a == 0:
+    print('\nВы выбрали демо-вариант: a = 1, b = -2, c = 10')
+    a, b, c = 1, -2, 10
+else:
+    b = float(input(' b = '))
+    c = float(input(' c = '))
+
+root_leverage = sqrt((b**2 - 4*a*c))/2/a
+extremum_point = -b/2/a
+
+x_1 = extremum_point + root_leverage
+x_2 = extremum_point - root_leverage
+
+print(f'\n x\u2081 = {x_1}\n x\u2082 = {x_2}')
