@@ -1,0 +1,12 @@
+# ////////////////   Задача о дробях    ////////////////
+
+from fractions import Fraction
+
+a, b = input('Введите числитель и знаменатель через пробел: ').split()
+c, d = input('Введите числитель и знаменатель через пробел: ').split()
+
+f_1 = Fraction(int(a), int(b))
+f_2 = Fraction(int(c), int(d))
+
+print(f'{f_1} + {f_2} = {f_1 + f_2}')
+print(f'{f_1} x {f_2} = {f_1*f_2}')
