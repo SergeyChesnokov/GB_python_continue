@@ -22,15 +22,15 @@
 # с дублирующимися элементами. В результирующем списке
 # не должно быть дубликатов.
 
-# lst = [1, 2, 3, 2, 5, 7, 1, 8, 4, 5, 3, 1]
-# lst_=[]
+lst = [1, 2, 3, 2, 5, 7, 1, 8, 4, 5, 3, 1]
+lst_=[]
 
-# for i in lst:
-#     a = lst.count(i)
-#     if a > 1:
-#         lst_.append(i)
+for i in lst:
+    a = lst.count(i)
+    if a > 1:
+        lst_.append(i)
 
-# print(list(set(lst_)))
+print(list(set(lst_)))
 
 # 2. В большой текстовой строке подсчитать количество встречаемых
 # слов и вернуть 10 самых частых. Не учитывать знаки препинания
@@ -60,11 +60,15 @@ from re import sub
 
 txt = sub(r'[.,"\'-?:!;]', '', txt)
 lst = txt.lower().split()
+dct_10_max = {}
 
 for i in lst:
-    a = lst.count(i)
-    if a > 1:
-        print(i, a)
+   dct_10_max.setdefault(i, lst.count(i))
+   
+for i in range(10):
+    x = max(dct_10_max, key=dct_10_max.get)
+    print('слово', x, 'встречается', dct_10_max[x])
+    del dct_10_max[x]
 
 
 # !!! В процессе !!! прошу дождаться завершения
