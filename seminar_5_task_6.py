@@ -7,7 +7,7 @@
 # ✔ Для вывода результата используйте «принт»
 # без перехода на новую строку.
 
-pifagor = (
+pythagoras = (
     f'{i} x {j} = {i*j}'+'\n\n'
     if (i == 5) & (j == 10) else
 
@@ -26,5 +26,5 @@ pifagor = (
     for i in range(2, 6)
    )
 
-print(*pifagor)
+print(*pythagoras)
 
