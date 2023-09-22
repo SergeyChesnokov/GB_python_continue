@@ -1,0 +1,23 @@
+# ///////////////////   Task 7  ///////////////////
+
+from sys import argv
+from seminar_6_modules import date
+
+
+if len(argv) == 1:
+    date_input = input('Введите дату в формате "DD.MM.YYYY":  ').split('.')
+elif len(argv) == 2:
+    date_input = argv[1].split('.')
+    if len(date_input) != 3:
+        print('Некорректный ввод')
+        quit()        
+else:
+    print('Некорректный ввод')
+    quit()
+
+
+for i in range(len(date_input)):
+    date_input[i] = int(date_input[i])
+
+print(date.date_checking_func(date_input))
+print(date._leap_year_checking_func(2024)) # защищенная функция все равно импортируется по-любому!!!
